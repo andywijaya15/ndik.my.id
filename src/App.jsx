@@ -1,33 +1,71 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { SpeedInsights } from "@vercel/speed-insights/react";
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
 
-function App() {
-  const [count, setCount] = useState(0);
+export default function App() {
+  const mountRef = useRef(null);
+
+  useEffect(() => {
+    const mount = mountRef.current;
+    if (!mount) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    mount.appendChild(renderer.domElement);
+
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshStandardMaterial({ color: 0x7e31eb });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    const light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
+    scene.add(light);
+
+    camera.position.z = 2;
+
+    let animationId;
+    const animate = () => {
+      animationId = requestAnimationFrame(animate);
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+      cube.rotation.z += 0.01;
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    // 📌 RESPONSIVE HANDLER
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(width, height);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationId);
+      renderer.dispose();
+      if (mount && renderer.domElement) {
+        mount.removeChild(renderer.domElement);
+      }
+    };
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HM
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-      <SpeedInsights />
-    </>
+    <div
+      ref={mountRef}
+      style={{
+        width: "100vw",
+        height: "100vh",
+        overflow: "hidden",
+      }}
+    />
   );
 }
-
-export default App;
