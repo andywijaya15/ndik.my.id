@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { LoadingScreen } from "./components/LoadingScreen";
+import { Home } from "./components/sections/Home";
 
 export const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  return <>{!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}</>;
+  return (
+    <>
+      <Home />
+    </>
+  );
 };
 
 export default App;
