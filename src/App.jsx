@@ -1,11 +1,7 @@
 import { Home } from "./components/sections/Home";
 
 export const App = () => {
-  return (
-    <>
-      <Home />
-    </>
-  );
+  return <Home />;
 };
 
 export default App;

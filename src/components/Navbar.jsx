@@ -9,11 +9,11 @@ export const Navbar = () => {
         <div className="flex justify-between h-16">
           {/* LOGO */}
           <div className="flex items-center">
-            <span className="text-xl font-bold">MyLogo</span>
+            <span className="text-xl font-bold">Home</span>
           </div>
 
           {/* DESKTOP MENU */}
-          <div className="hidden md:flex items-center space-x-6">
+          {/* <div className="hidden md:flex items-center space-x-6">
             <a href="#" className="text-gray-700 hover:text-blue-600">
               Home
             </a>
@@ -23,21 +23,21 @@ export const Navbar = () => {
             <a href="#" className="text-gray-700 hover:text-blue-600">
               Contact
             </a>
-          </div>
+          </div> */}
 
           {/* MOBILE BUTTON */}
-          <button className="md:hidden flex items-center" onClick={() => setOpen(!open)}>
+          {/* <button className="md:hidden flex items-center" onClick={() => setOpen(!open)}>
             <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-          </button>
+          </button> */}
         </div>
       </div>
 
       {/* MOBILE MENU */}
       {open && (
         <div className="md:hidden px-4 pb-4">
-          <a href="#" className="block py-2 text-gray-700 hover:text-blue-600">
+          {/* <a href="#" className="block py-2 text-gray-700 hover:text-blue-600">
             Home
           </a>
           <a href="#" className="block py-2 text-gray-700 hover:text-blue-600">
@@ -45,7 +45,7 @@ export const Navbar = () => {
           </a>
           <a href="#" className="block py-2 text-gray-700 hover:text-blue-600">
             Contact
-          </a>
+          </a> */}
         </div>
       )}
     </nav>
