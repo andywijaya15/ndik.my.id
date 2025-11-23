@@ -4,15 +4,15 @@ export default function Hero() {
   return (
     <>
       <div
-        className="hero w-full min-h-screen"
+        className="hero w-full min-h-screen bg-cover bg-center"
         id="home"
         style={{
           backgroundImage: `url("/mm_photography-937.jpg")`,
         }}
       >
         <div className="hero-overlay"></div>
-        <div className="hero-content flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-left px-6">
-          {/* <img src="DSC01240.jpeg" className="max-w-sm rounded-lg shadow-2xl" /> */}
+        <div className="hero-content flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-left px-6 gap-10">
+          <img src="DSC01240.jpeg" className="w-40 sm:w-56 rounded-lg shadow-2xl" />
           <div>
             <h1 className="text-4xl sm:text-5xl font-bold">Andy Wijaya</h1>
             <p className="py-6 max-w-md">
