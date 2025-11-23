@@ -12,11 +12,12 @@ export default function Hero() {
       >
         <div className="hero-overlay"></div>
         <div className="hero-content flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-left px-6 gap-10">
-          <img src="DSC01240.jpeg" className="w-40 sm:w-56 rounded-lg shadow-2xl" />
+          {/* <img src="DSC01240.jpeg" className="w-40 sm:w-56 rounded-lg shadow-2xl" /> */}
           <div>
-            <h1 className="text-4xl sm:text-5xl font-bold">Andy Wijaya</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold">👋 Hey, I'm Andy</h1>
             <p className="py-6 max-w-md">
-              I develop APIs, manage servers, and implement monitoring for scalable and stable applications.
+              I’m a full-stack developer who loves crafting clean, scalable web applications. My goal is to build
+              solutions that offer both exceptional performance and a delightful user experience.
             </p>
           </div>
         </div>
