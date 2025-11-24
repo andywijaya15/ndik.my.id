@@ -7,7 +7,8 @@ export default function Hero() {
         className="hero w-full min-h-screen bg-cover bg-center"
         id="home"
         style={{
-          backgroundImage: `url("/mm_photography-937.jpg")`,
+          // backgroundImage: `url("/mm_photography-937.jpg")`,
+          backgroundImage: `url("/DSC01240.jpeg")`,
         }}
       >
         <div className="hero-overlay"></div>
